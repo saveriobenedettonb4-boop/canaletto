@@ -1,0 +1,91 @@
+.hero h1 span{display:inline-block}
+.project-cloud{height:900px;min-height:760px;background:#fff}
+.project-cloud .cloud-copy{z-index:2;background:none;padding:0 24px;width:100%;max-width:920px}
+.project-cloud h2{font-size:72px;line-height:1.05;margin-bottom:42px}
+.cloud-field{position:absolute;inset:-80px 0;pointer-events:none;overflow:hidden;
+  mask-image:radial-gradient(ellipse at center,#0002 0%,#000a 38%,#000 62%)}
+.cloud-particle{position:absolute;width:var(--tile-size);aspect-ratio:1;opacity:var(--tile-opacity);transform:translateX(-50%)}
+.cloud-particle img{width:100%;height:100%;object-fit:cover;border-radius:0}
+@media(min-width:1800px){.project-cloud h2{font-size:88px}.project-cloud .cloud-copy{max-width:1200px}}
+@media(max-width:900px){
+  .project-cloud{height:760px;min-height:760px}
+  .project-cloud h2{font-size:54px}
+  .cloud-particle{width:calc(var(--tile-size)*.7)}
+  .cloud-particle:nth-child(n+19){display:none}
+}
+@media(max-width:700px){
+  .project-cloud .cloud-copy{max-width:100%;padding:0 20px}
+  .project-cloud h2{font-size:38px;line-height:1.12;margin-bottom:32px}
+  .cloud-particle{width:calc(var(--tile-size)*.56)}
+}
+@media(max-width:370px){.project-cloud h2{font-size:34px}}
+.button svg,.text-button svg,.guide-choice svg{transition:transform .22s ease}
+.button,.laser-box{
+  position:relative;
+  isolation:isolate;
+  --laser-angle:0deg;
+  --laser-trail:conic-gradient(from var(--laser-angle),transparent 0deg 245deg,
+    #ff3b0020 275deg,#ff3b00 315deg,#ff8a32 338deg,#fff1d4 346deg,transparent 352deg);
+}
+.button{border-radius:8px}
+.button::before,.button::after,.laser-box::before,.laser-box::after{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:10px;
+  padding:2px;
+  background:var(--laser-trail);
+  pointer-events:none;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask-composite:exclude;
+}
+.button::before,.laser-box::before{z-index:1}
+.button::after{inset:-4px;padding:4px;border-radius:12px;filter:blur(4px);opacity:.55;z-index:-1;transition:opacity .2s ease}
+/* Box con lo stesso laser dei bottoni (box linee in home): raggi del box 16px. */
+.laser-box::before{border-radius:18px}
+.laser-box::after{inset:-4px;padding:4px;border-radius:20px;filter:blur(4px);opacity:.55;z-index:-1}
+@media(max-width:900px){.laser-box::after{display:none}}
+.button:hover::after,.button:focus-visible::after{opacity:.9}
+.image-band .button{
+  --laser-trail:conic-gradient(from var(--laser-angle),#ff440b18 0deg 235deg,
+    #ff440b80 275deg,#ff440b 310deg,#ffad50 335deg,#fff2ce 342deg,#ff440b 350deg,#ff440b18 360deg);
+  box-shadow:0 0 0 1px #ff440b40;
+}
+.image-band .button::before{inset:-3px;padding:3px;border-radius:11px}
+.image-band .button::after{inset:-5px;padding:5px;border-radius:13px;filter:blur(5px);opacity:.85;z-index:0}
+.image-band .button:hover::after,.image-band .button:focus-visible::after{opacity:1}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .button:hover svg,.text-button:hover svg{transform:translateX(4px)}
+  .guide-choice:hover svg{transform:translateY(-3px)}
+}
+@media(max-width:700px){.hero.home h1 span{display:block}}
+@media(prefers-reduced-motion:reduce){
+  .button,.laser-box{--laser-trail:linear-gradient(120deg,#ff3b00,#ff9b42,#ff3b00)}
+  .button::after,.laser-box::after{opacity:.25}
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+/* Chi siamo, Mission/Vision (da XD): fondo nero, box testo grigi, foto con gli stessi angoli.
+   Senza animazione (mobile, riduci movimento) resta una griglia; su desktop motion.js aggiunge
+   is-pinned e la sezione diventa un palco a schermo intero con due metà. */
+.staggered.mv{margin:0;padding:8px;gap:8px;background:#000}
+.staggered.mv>div{background:#303033;border-radius:16px;justify-content:space-between;align-items:stretch;gap:48px;padding:32px 32px 36px}
+.staggered.mv h2{margin:0}
+/* Piede del box (come capsules.moyra.co): contatore a sinistra, testo a destra, in basso */
+.mv-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.staggered.mv .mv-foot p{max-width:560px;margin:0;font-size:18px;line-height:1.5}
+.mv-count{display:flex;gap:1px;flex:none}
+.mv-count b{display:grid;place-items:center;min-width:38px;height:32px;padding:0 11px;border:2px solid #fff;border-radius:999px;color:#fff;font-size:15px;font-weight:600;opacity:.2}
+.mv-count b.on{opacity:1;border-color:#b5b5b8}
+.staggered.mv h2{color:#b5b5b8;font-weight:500}
+.staggered.mv p{color:#fff}
+.staggered.mv .image-band{border-radius:16px}
+.staggered.mv.is-pinned{display:block;position:relative;height:100svh;padding:0;overflow:hidden}
+.staggered.mv.is-pinned>*{position:absolute;top:8px;bottom:8px;width:calc(50% - 12px);height:auto;margin:0}
+.staggered.mv.is-pinned>:first-child{left:8px}
+.staggered.mv.is-pinned>:not(:first-child){right:8px}
+@media(max-width:700px){.staggered.mv>div{padding:28px 24px;gap:32px}.mv-foot{flex-direction:column-reverse;align-items:flex-start;gap:24px}.staggered.mv .mv-foot p{font-size:17px}}
+/* Lenis */
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}.lenis.lenis-smooth iframe{pointer-events:none}

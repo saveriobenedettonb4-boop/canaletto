@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ff3b00">
+  <meta name="description" content="Canaletto. Profili e sistemi integrati per dare luce e forma all'architettura.">
+  <title>Canaletto | Luce come linguaggio</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20261027-ct2">
+  <link rel="stylesheet" href="motion.css?v=20261027-light1">
+  <link rel="stylesheet" href="home.css?v=20261027-lsgrid1">
+  <link rel="stylesheet" href="navigation.css?v=20261007-hero">
+  <script src="assets/lucide.min.js" defer></script>
+  <script src="assets/gsap.min.js" defer></script>
+  <script src="assets/ScrollTrigger.min.js" defer></script>
+  <script src="assets/lenis.min.js" defer></script>
+  <script src="motion.js?v=20261027-vl6" defer></script>
+  <script src="cta-laser.js?v=20261027-light1" defer></script>
+  <script src="home.js?v=20261027-lsfinal" defer></script>
+  <script src="news.js?v=20261027-news1" defer></script>
+  <script src="app.js?v=20261027-ct1" defer></script>
+</head>
+<body>
+  <div id="loader" hidden data-lenis-prevent><video muted playsinline preload="auto" aria-hidden="true"></video><button type="button" class="loader-skip">Salta</button></div>
+  <a class="skip" href="#main">Vai al contenuto</a>
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Canaletto, home"><img src="assets/logo.svg" alt="Canaletto" width="276" height="53"></a>
+    <nav class="tools" aria-label="Navigazione principale">
+      <button class="guide-link" data-action="guide">Guida alla scelta <i data-lucide="settings"></i></button>
+      <button class="icon-button" data-action="search" aria-label="Cerca" title="Cerca"><i data-lucide="search"></i></button>
+      <button class="icon-button" data-action="menu" aria-label="Apri menu" aria-expanded="false" title="Menu"><i data-lucide="menu"></i></button>
+      <button class="icon-button cart-button" data-action="cart" aria-label="Apri carrello" title="Shop"><i data-lucide="shopping-cart"></i><span class="shop-label" aria-hidden="true">Shop</span><span id="cart-count" hidden>0</span></button>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer id="footer"></footer>
+  <dialog id="menu-dialog" class="menu-dialog" aria-label="Menu">
+    <div class="header mega-header">
+      <a class="brand" href="#home" aria-label="Canaletto, home"><img src="assets/logo.svg" alt="Canaletto" width="276" height="53"></a>
+      <nav class="tools" aria-label="Strumenti del menu">
+        <button class="guide-link" data-action="guide">Guida alla scelta <i data-lucide="settings"></i></button>
+        <button class="icon-button" data-action="search" aria-label="Cerca" title="Cerca"><i data-lucide="search"></i></button>
+        <button class="icon-button" data-close aria-label="Chiudi menu" title="Chiudi menu"><i data-lucide="x"></i></button>
+        <button class="icon-button cart-button" data-action="cart" aria-label="Apri carrello" title="Shop"><i data-lucide="shopping-cart"></i><span class="shop-label" aria-hidden="true">Shop</span></button>
+      </nav>
+    </div>
+    <div class="mega-content">
+      <nav class="mega-primary" aria-label="Pagine del sito">
+        <button class="mega-products" aria-expanded="false" aria-controls="mega-product-links">Prodotti</button>
+        <a href="#progetti">Ambienti</a>
+        <a href="#chi-siamo">Azienda</a>
+        <a href="#news">News</a>
+        <a class="mega-contact" href="#contatti">Contatti</a>
+      </nav>
+      <nav id="mega-product-links" class="mega-secondary" aria-label="Prodotti" hidden>
+        <a href="#illuminotecnica">Sistemi integrati<br>per l'illuminotecnica</a>
+        <a href="#linee">Sistemi integrati<br>per secco e finiture</a>
+        <a href="#contatti">Il tuo progetto<br>su misura</a>
+      </nav>
+      <img class="mega-image" src="assets/11874c90c311dff48f377e631c02ddad.webp" alt="Sezione del profilo Canaletto con luce integrata">
+    </div>
+  </dialog>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="dialog-top"><h2 id="search-title">Cerca in Canaletto</h2><button class="icon-button" data-close aria-label="Chiudi ricerca"><i data-lucide="x"></i></button></div><label class="search-field"><i data-lucide="search"></i><input id="search-input" type="search" placeholder="Cerca un profilo, una linea, un progetto…" autocomplete="off"></label><div id="search-results" aria-live="polite"></div></dialog>
+  <dialog id="guide-dialog" aria-labelledby="guide-title"><div class="dialog-top"><span class="eyebrow">Guida alla scelta</span><button class="icon-button" data-close aria-label="Chiudi guida"><i data-lucide="x"></i></button></div><h2 id="guide-title">Quale soluzione serve<br>al tuo progetto?</h2><form id="guide-form"><fieldset><legend>Che effetto vuoi ottenere?</legend><label><input type="radio" name="light" value="indiretta" checked> Luce indiretta</label><label><input type="radio" name="light" value="diretta"> Tagli di luce</label><label><input type="radio" name="light" value="finitura"> Finiture architettoniche</label></fieldset><label class="field">Applicazione<select name="application"><option>Controsoffitto</option><option>Parete e controparete</option><option>Nicchie e velette</option></select></label><button class="button dark" type="submit">Trova il profilo giusto <i data-lucide="arrow-right"></i></button></form><div id="guide-result" aria-live="polite"></div></dialog>
+  <dialog id="gallery-dialog" class="gallery-dialog" aria-label="Galleria fotografica"><div class="dialog-top"><span id="gallery-caption"></span><button class="icon-button" data-close aria-label="Chiudi galleria"><i data-lucide="x"></i></button></div><div class="gallery-stage"><button class="icon-button" data-gallery-step="-1" aria-label="Foto precedente"><i data-lucide="chevron-left"></i></button><img id="gallery-image" alt=""><button class="icon-button" data-gallery-step="1" aria-label="Foto successiva"><i data-lucide="chevron-right"></i></button></div><div id="gallery-thumbs"></div></dialog>
+  <dialog id="cart-dialog" aria-labelledby="cart-title"><div class="dialog-top"><h2 id="cart-title">Il tuo carrello</h2><button class="icon-button" data-close aria-label="Chiudi carrello"><i data-lucide="x"></i></button></div><div id="cart-items"></div></dialog>
+  <dialog id="notice-dialog" aria-labelledby="notice-title"><div class="dialog-top"><h2 id="notice-title"></h2><button class="icon-button" data-close aria-label="Chiudi"><i data-lucide="x"></i></button></div><div id="notice-body"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
