@@ -160,12 +160,12 @@
 .route-home .hp-highlight,.route-home .hp-sample{width:auto;max-width:none;margin-left:8px;margin-right:8px}
 /* Perché scegliere: sezione bloccata a tutta altezza, testo a sinistra, foto che cambia a destra */
 .hp-why{height:100svh;display:grid;grid-template-columns:5fr 7fr;gap:8px;padding:8px}
-.why-text{display:flex;flex-direction:column;justify-content:space-between;padding:40px calc(var(--gutter) - 8px)}
+.why-text{display:flex;flex-direction:column;justify-content:space-between;padding:40px calc(var(--pad) - 8px)}
 .why-title{display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-size:40px;font-weight:500;line-height:1.1;margin:0}
 .why-title img{width:250px}
 .why-text ol{list-style:none;margin:0;padding:0}
 .why-text li{display:grid;grid-template-columns:60px 1fr;padding:22px 0;border-top:1px solid #d6d6d8;color:#b5b5b8;transition:color .35s}
-.why-num{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:14px;letter-spacing:.02em;padding-top:8px}
+.why-num{font-variant-numeric:tabular-nums;font-size:14px;letter-spacing:.02em;padding-top:8px}
 .why-text li h3{font-size:34px;font-weight:500;line-height:1.1;margin:0}
 .why-text li p{max-height:0;opacity:0;overflow:hidden;margin:0;font-size:18px;line-height:1.45;color:#3e3e3e;transition:max-height .45s,opacity .3s,margin .45s;max-width:440px}
 .hp-why[data-active="0"] li:nth-child(1),.hp-why[data-active="1"] li:nth-child(2),.hp-why[data-active="2"] li:nth-child(3){color:#111}
@@ -179,7 +179,7 @@
 .faqs-side h2{font-size:64px;font-weight:500;color:#b5b5b8;margin:0 0 48px}
 .faqs-tabs{display:flex;flex-direction:column;gap:6px;margin-bottom:auto}
 .faqs-tabs button{display:flex;gap:6px;align-items:flex-start;padding:0;border:0;background:none;color:#8e8e93;font-size:40px;font-weight:500;line-height:1.15;cursor:pointer;text-align:left}
-.faqs-tabs button sup{font-size:14px;margin-top:8px;font-family:ui-monospace,Menlo,monospace}
+.faqs-tabs button sup{font-size:14px;margin-top:8px;font-variant-numeric:tabular-nums}
 .faqs-tabs button.on,.faqs-tabs button:hover{color:#fff}
 .faqs-side .button{margin-top:48px;background:#fff;color:#111;border-color:#fff}
 .faqs-panels{padding:28px 48px;border-radius:16px;background:#e9e8ea;min-height:560px}
@@ -218,7 +218,7 @@
 .lh-card:hover{background:#1d1d1d}
 .lh-card:hover .lh-link{color:var(--orange)}
 .lh-card:hover .lh-link svg{transform:translateX(4px)}
-.lh-num{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:14px;color:#8a8a8a}
+.lh-num{font-variant-numeric:tabular-nums;font-size:14px;color:#8a8a8a}
 .lh-card h3{margin:12px 0 0;font-size:30px;font-weight:500;line-height:1.1}
 .lh-card p{margin:12px 0 0;max-width:340px;font-size:16px;line-height:1.4;color:#d6d6d8}
 .lh-card img{flex:1;min-height:0;width:100%;object-fit:contain;margin:20px 0;border-radius:10px;mix-blend-mode:lighten}
@@ -245,3 +245,14 @@
 .lh-grid .lh-card{height:auto;min-height:560px}
 @media(max-width:900px){.lh-grid{grid-template-columns:1fr}.lh-grid .lh-card{min-height:480px}}
 @media(max-width:700px){.ill-lines{padding:72px 0}}
+/* Guida: i righelli stanno nella stessa riga della ruota, così il centro coincide con la voce selezionata
+   e l'altezza segue la ruota. Le altre righe sono fissate perché i righelli occupano già la riga 3. */
+.route-home .hp-guide[data-guide-scroll]>h2{grid-row:1;grid-column:1}
+.route-home .hp-guide[data-guide-scroll]>p{grid-row:2;grid-column:1}
+.route-home .hp-guide[data-guide-scroll] .guide-wheel{grid-row:3;grid-column:1}
+.route-home .hp-guide[data-guide-scroll]>:last-child{grid-row:4;grid-column:1}
+.route-home .hp-guide[data-guide-scroll] .guide-ruler{position:relative;top:auto;left:auto;right:auto;transform:none;grid-row:3;grid-column:1;align-self:stretch;justify-content:space-between;gap:0;padding:12px 0;z-index:1}
+.route-home .hp-guide[data-guide-scroll] .ruler-left{justify-self:start}
+.route-home .hp-guide[data-guide-scroll] .ruler-right{justify-self:end}
+.guide-ruler i{width:48px;background:#fff8}
+@media(max-width:700px){.guide-ruler i{width:20px}}

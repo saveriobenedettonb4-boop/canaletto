@@ -55,3 +55,6 @@
   .mega-image{order:3;width:100%;height:220px;border-radius:8px;margin-top:35px;object-fit:contain}
 }
 @media(prefers-reduced-motion:reduce){.tools .cart-button,.mega-products::after,.header [data-action="menu"] svg line{transition:none}}
+
+@media(min-width:701px){.mega-content{align-items:center}}
+@media(min-width:701px){.mega-secondary{align-self:start}.mega-products::after{top:var(--prod-mid,38px)}}
